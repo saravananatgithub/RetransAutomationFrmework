@@ -17,6 +17,27 @@ public class RetransTest extends TestBase {
 	private ListLiteraturesPage listLiteItemsPage;
 
 	@Test
+	public void editLiteratureItemAddAction() {
+		if (listLiteItemsPage == null) {
+			System.out.println("listLiteItemsPage 0:" + listLiteItemsPage);
+			listLiteItemsPage = loginPage.login();
+		}
+		threadwait(5000);
+		String fromDate = "11";
+		String fromMonth = "Oct";
+		String fromYear = "2022";
+
+		String toDate = "13";
+		String toMonth = "Nov";
+		String toYear = "2022";
+
+		EditLiteraturesPage editLitPage = listLiteItemsPage.editLiterature("2022_W37_9");
+		threadwait(3000);
+		editLitPage.createAction("Internal review", "Open", fromDate, fromMonth, fromYear, toDate, toMonth, toYear);
+		threadwait(3000);
+	}
+
+	// @Test
 	public void editLiteratureItemAddNotes() {
 		if (listLiteItemsPage == null) {
 			System.out.println("listLiteItemsPage 0:" + listLiteItemsPage);
