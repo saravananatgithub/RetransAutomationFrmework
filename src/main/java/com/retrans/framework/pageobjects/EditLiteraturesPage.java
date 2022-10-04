@@ -10,25 +10,34 @@ public class EditLiteraturesPage extends BasePage {
 	@FindBy(xpath = "//button[@id='litPanel:userNotesListForm:createNote']")
 	private WebElement createNotesButton;
 
-	@FindBy(xpath = "//button[@id='litPanel:userNotesListForm:createNote']")
+	@FindBy(xpath = "//button[@id='litPanel:actionListForm:createAction']")
 	private WebElement createActionButton;
+
+	//
+
+	@FindBy(xpath = "//a[normalize-space()='Actions']")
+	private WebElement actionTab;
 
 	public EditLiteraturesPage(WebDriver driver) {
 		super(driver);
 	}
 
 	public void createNotes(String title, String description) {
-		//createNotesButton.click();
+		// createNotesButton.click();
 		driver.findElement(By.xpath("//button[@id='litPanel:userNotesListForm:createNote']")).click();
 		CreateNotesPage notesPage = new CreateNotesPage(driver);
 		notesPage.addNotes(title, description);
 		threadwait(3000);
 	}
 
-	public void createAction(String title, String description) {
-		createActionButton.click();
+	public void createAction(String title, String status, String fromDate, String fromMonth, String fromYear,
+			String toDate, String toMonth, String toYear) {
+		driver.findElement(By.xpath("//a[normalize-space()='Actions']")).click();
+		threadwait(5000);
+		driver.findElement(By.xpath("//button[@id='litPanel:actionListForm:createAction']")).click();
 		CreateActionsPage actionsPage = new CreateActionsPage(driver);
-		actionsPage.createAction(title, description);
+		actionsPage.createAction(title, status, fromDate, fromMonth, fromYear, toDate, toMonth, toYear);
+
 	}
 
 }
