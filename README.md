@@ -1,11 +1,12 @@
 # RetransAutomationFrmework
 
 What is there in the Repo?
+
  Automated test cases 
-                     1) Logs in
-                     2) Filters Literature Items by Business Unit, Classification, Activity.
-                     3) View Literature Items 
-                     4) Edit and Claim a Literatuire Item , adds Notes and Actions.
+     1) Logs in
+     2) Filters Literature Items by Business Unit, Classification, Activity.
+     3) View Literature Items 
+     4) Edit and Claim a Literatuire Item , adds Notes and Actions.
 
 How to run these Testcases?
    1) Need to have Java 8 or above in your PC
