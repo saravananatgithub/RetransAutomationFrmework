@@ -2,20 +2,23 @@ package com.retrans.framework;
 
 import java.time.Duration;
 
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 
+import com.retrans.framework.pageobjects.ListLiteraturesPage;
 import com.retrans.framework.pageobjects.LoginPage;
 
 public class TestBase {
 
-	static WebDriver driver;
-	static LoginPage loginPage = null;
-	static String baseUrl = "http://35.87.98.64/ReTrans61/login.xhtml";
+	public static WebDriver driver;
+	public static LoginPage loginPage = null;
+	public static ListLiteraturesPage listLiteItemsPage = null;
+	public static String hostIP = "35.161.37.156";
+	public static String baseUrl = "http://" + hostIP + "/ReTrans61/login.xhtml";
 
 	protected void threadwait(int k) {
 		try {
@@ -28,7 +31,7 @@ public class TestBase {
 	}
 
 	@BeforeClass
-	public static void beforeTest() {
+	public void beforeTest() {
 		System.out.println("Before Test");
 
 		System.setProperty("webdriver.chrome.driver", "C:/sarva/selenium/chromedriver.exe");
@@ -37,11 +40,12 @@ public class TestBase {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		loginPage = new LoginPage(driver);
 		driver.get(baseUrl);
+		listLiteItemsPage = loginPage.login();
 
 	}
 
 	@AfterClass
-	public static void afterTest() {
+	public void afterTest() {
 		System.out.println("After Test");
 
 		WebElement testUserLink = driver.findElement(By.xpath("//span[contains(text(),'Test_User')]"));
