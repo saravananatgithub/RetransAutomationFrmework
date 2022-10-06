@@ -3,7 +3,7 @@
 <suite name="Testing Retrans Apps">
 	<test name="Regression">
 		<classes>
-			<class name="com.retrans.framework.RetransTest" />
+			<class name="com.retrans.test.RetransTest" />
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->
