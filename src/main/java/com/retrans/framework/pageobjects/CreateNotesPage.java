@@ -18,27 +18,17 @@ public class CreateNotesPage extends BasePage {
 
 	public CreateNotesPage(WebDriver driver) {
 		super(driver);
-		// TODO Auto-generated constructor stub
 	}
 
 	public void addNotes(String title, String description) {
-		// driver.findElement(By.xpath("//button[@id='litPanel:userNotesListForm:createNote']")).click();
 
 		driver.findElement(By.xpath("//input[@id='litPanel:createUserNotesForm:title']")).sendKeys(title);
-		// //textarea[@id='litPanel:createUserNotesForm:notes']
-		
 
 		driver.findElement(By.xpath("//textarea[@id='litPanel:createUserNotesForm:notes']")).sendKeys(description);
 
 		driver.findElement(By.xpath(
 				"//button[@id='litPanel:createUserNotesForm:saveNote']//span[@class='ui-button-text ui-c'][normalize-space()='Save']"))
 				.click();
-
-//		createButton.click();
-//		inputNotesTitle.sendKeys(title);
-//		inputDescription.sendKeys(description);
-//		saveNotesButton.click();
-
 	}
 
 }

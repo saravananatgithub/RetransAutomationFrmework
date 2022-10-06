@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.retrans.framework.TestBase;
+
 public class ListLiteraturesPage extends BasePage {
 	@FindBy(xpath = "//span[contains(text(),'Test_User')]")
 	private WebElement testUserLink;
@@ -124,6 +126,12 @@ public class ListLiteraturesPage extends BasePage {
 
 		testUserLink.click();
 		logoutElement.click();
+
+	}
+
+	public void navigateToListLitItemsPage() {
+		driver.get("http://" + TestBase.hostIP + "/ReTrans61/views/literatureItems/list.xhtml");
+		threadwait(4000);
 
 	}
 
