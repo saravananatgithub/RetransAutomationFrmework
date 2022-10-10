@@ -29,8 +29,7 @@ public class ListLiteraturesPage extends BasePage {
 
 	@FindBy(xpath = "//label[@id='literaturListForm:literatureItemsGrid:claimid_label']/following::span[1]")
 	private WebElement filterByClaims;
-
-	// literaturListForm:literatureItemsGrid:statusid_label
+	
 	@FindBy(xpath = "//label[@id='literaturListForm:literatureItemsGrid:statusid_label']/following::span[1]")
 	private WebElement filterByActivity;
 
@@ -123,7 +122,7 @@ public class ListLiteraturesPage extends BasePage {
 	}
 
 	public void navigateToListLitItemsPage() {
-		driver.get("http://" + TestBase.hostIP + "/ReTrans61/views/literatureItems/list.xhtml");
+		driver.get("http://" + TestBase.hostIP + "/" + TestBase.context + "/views/literatureItems/list.xhtml");
 		threadwait(4000);
 
 	}
