@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import com.retrans.framework.TestBase;
+import com.retrans.test.TestBase;
 
 public class ListLiteraturesPage extends BasePage {
 	@FindBy(xpath = "//span[contains(text(),'Test_User')]")
