@@ -20,14 +20,7 @@ public class ListLiteraturesPage extends BasePage {
 
 	@FindBy(xpath = "//span[normalize-space()='Claim']")
 	private WebElement claimButton;
-
-	// @FindBy(xpath =
-	// "//body/div[@id='readOnlyLitItemNotDupForm:litPanel:literatureGroupListForm:j_idt2194']/div[@class='ui-dialog-buttonpane
-	// ui-dialog-footer ui-widget-content
-	// ui-helper-clearfix']/button[@id='readOnlyLitItemNotDupForm:litPanel:literatureGroupListForm:j_idt2195']/span[1]")
-	// @FindBy(xpath =
-	// "//button[contains(@class,'ui-confirmdialog-yes')]/following::span[@class='ui-button-text
-	// ui-c' and text()='Yes'][3]")
+	
 	@FindBy(xpath = "//span[@class='ui-button-icon-left ui-icon ui-c fa fa-check Fs16 white']")
 	private WebElement dialogYesButton;
 
