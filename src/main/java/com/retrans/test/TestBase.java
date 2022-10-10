@@ -1,6 +1,9 @@
 package com.retrans.test;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.time.Duration;
+import java.util.Properties;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -13,19 +16,45 @@ import com.retrans.framework.pageobjects.ListLiteraturesPage;
 import com.retrans.framework.pageobjects.LoginPage;
 
 public class TestBase {
-
+	public static Properties properties = new Properties();
+	static {
+		java.net.URL url = ClassLoader.getSystemResource("env.properties");
+		try {
+			properties.load(url.openStream());
+		} catch (FileNotFoundException fie) {
+			fie.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public static WebDriver driver;
 	public static LoginPage loginPage = null;
+	
+	public static String username = properties.getProperty("username");
+	public static String password = properties.getProperty("password");
+	
 	public static ListLiteraturesPage listLiteItemsPage = null;
-	public static String hostIP = "35.161.37.156";
-	public static String baseUrl = "http://" + hostIP + "/ReTrans61/login.xhtml";
-	public static String chromeDriverPath = "C:/sarva/selenium/chromedriver.exe";
+	public static String hostIP = properties.getProperty("hostip");
+	public static String context = properties.getProperty("context");
+	public static String baseUrl = "http://" + hostIP + "/" + context + "/login.xhtml";
+	public static String chromeDriverPath = properties.getProperty("driver-path");
+	
+	static {
+		java.net.URL url = ClassLoader.getSystemResource("env.properties");
+		try {
+			properties.load(url.openStream());
+		} catch (FileNotFoundException fie) {
+			fie.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
 	protected void threadwait(int k) {
 		try {
 			Thread.sleep(k);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
