@@ -6,4 +6,4 @@
 			<class name="com.retrans.test.RetransTest" />
 		</classes>
 	</test> <!-- Test -->
-</suite> <!-- Suite -->
+</suite> 
