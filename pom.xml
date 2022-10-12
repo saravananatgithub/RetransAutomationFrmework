@@ -11,7 +11,7 @@
 	</properties>
 
 
-	<!-- https://mvnrepository.com/artifact/org.testng/testng  tag line -->
+	<!-- https://mvnrepository.com/artifact/org.testng/testng  -->
 
 	<dependencies>
 		<dependency>
