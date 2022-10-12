@@ -5,5 +5,5 @@
 		<classes>
 			<class name="com.retrans.test.RetransTest" />
 		</classes>
-	</test> <!-- Test -->
+	</test>
 </suite> 
