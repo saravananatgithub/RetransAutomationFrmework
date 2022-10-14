@@ -20,7 +20,7 @@ public class ListLiteraturesPage extends BasePage {
 
 	@FindBy(xpath = "//span[normalize-space()='Claim']")
 	private WebElement claimButton;
-	
+
 	@FindBy(xpath = "//span[@class='ui-button-icon-left ui-icon ui-c fa fa-check Fs16 white']")
 	private WebElement dialogYesButton;
 
@@ -29,7 +29,7 @@ public class ListLiteraturesPage extends BasePage {
 
 	@FindBy(xpath = "//label[@id='literaturListForm:literatureItemsGrid:claimid_label']/following::span[1]")
 	private WebElement filterByClaims;
-	
+
 	@FindBy(xpath = "//label[@id='literaturListForm:literatureItemsGrid:statusid_label']/following::span[1]")
 	private WebElement filterByActivity;
 
@@ -76,6 +76,36 @@ public class ListLiteraturesPage extends BasePage {
 		String xpath = "//span[text()='" + litName + "']/preceding::td[1]/button/span[1]";
 		waituntilElementLocated(By.xpath(xpath));
 		driver.findElement(By.xpath(xpath)).click();
+		return new EditLiteraturesPage(driver);
+	}
+
+	public EditLiteraturesPage editLiteratureByTitle(String litTitle) {
+		/*
+		 * //button[@id='literaturListForm:literatureItemsGrid:searchCit']
+		 * 
+		 * //textarea[@placeholder='Title ']
+		 * 
+		 * //button[@id='filterPanelForm:applyFilter']
+		 * 
+		 * //span[@class='ui-button-icon-left ui-icon ui-c fa fa-pencil-alt jm3']
+		 */
+
+		String xpath = "//button[@id='literaturListForm:literatureItemsGrid:searchCit']";
+		driver.findElement(By.xpath(xpath)).click();
+		threadwait(3000);
+
+		xpath = "//textarea[@placeholder='Title ']";
+		driver.findElement(By.xpath(xpath)).clear();
+		driver.findElement(By.xpath(xpath)).sendKeys("%" + litTitle + "%");
+		
+		xpath = "//button[@id='filterPanelForm:applyFilter']";
+		driver.findElement(By.xpath(xpath)).click();
+		threadwait(4000);
+
+		xpath = "//span[@class='ui-button-icon-left ui-icon ui-c fa fa-pencil-alt jm3']";
+		driver.findElement(By.xpath(xpath)).click();
+		threadwait(3000);
+
 		return new EditLiteraturesPage(driver);
 	}
 
