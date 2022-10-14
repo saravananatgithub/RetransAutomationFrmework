@@ -33,7 +33,6 @@ public class CreateActionsPage extends BasePage {
 		Select drpYear = new Select(driver.findElement(By.className("ui-datepicker-year")));
 		drpYear.selectByVisibleText(fromYear);
 		threadwait(3000);
-
 		driver.findElement(By.xpath("//td[@data-handler='selectDay']/a[text()='" + fromDate + "']")).click();
 		threadwait(3000);
 
