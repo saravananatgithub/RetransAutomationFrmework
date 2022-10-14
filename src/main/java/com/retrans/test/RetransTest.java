@@ -6,12 +6,31 @@ import org.testng.annotations.Test;
 
 import com.retrans.framework.pageobjects.EditLiteraturesPage;
 
-public class RetransTest extends TestBase {
+public class RetransTest extends TestBase {	
+	
+	@Test
+	public void editLiteratureItemByTitleAddAction() {
+		threadwait(5000);
+		String fromDate = "28";
+		String fromMonth = "Oct";
+		String fromYear = "2022";
+
+		String toDate = "13";
+		String toMonth = "Nov";
+		String toYear = "2022";
+		String litTitle = "Imepitoin is well tolerated";
+
+		listLiteItemsPage.navigateToListLitItemsPage();
+		EditLiteraturesPage editLitPage = listLiteItemsPage.editLiteratureByTitle(litTitle);
+		threadwait(3000);
+		editLitPage.createAction("Internal review", "Open", fromDate, fromMonth, fromYear, toDate, toMonth, toYear);
+		threadwait(3000);
+	}
 
 	@Test
 	public void editLiteratureItemAddAction() {
 		threadwait(5000);
-		String fromDate = "11";
+		String fromDate = "28";
 		String fromMonth = "Oct";
 		String fromYear = "2022";
 
