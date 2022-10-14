@@ -1,5 +1,7 @@
 # RetransAutomationFrmework
 
+http://10.60.87.254:8080/buildStatus/icon?job=FreshKiteDemoPipeline
+
 What is there in the Repo?
 
  Automated test cases 
