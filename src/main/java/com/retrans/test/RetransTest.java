@@ -6,9 +6,26 @@ import org.testng.annotations.Test;
 
 import com.retrans.framework.pageobjects.EditLiteraturesPage;
 
-public class RetransTest extends TestBase {	
-	
-	@Test
+public class RetransTest extends TestBase {
+
+	// @Test
+	public void editLiteratureItemAddAction() {
+		threadwait(5000);
+		String fromDate = "11";
+		String fromMonth = "Oct";
+		String fromYear = "2022";
+
+		String toDate = "13";
+		String toMonth = "Nov";
+		String toYear = "2022";
+		listLiteItemsPage.navigateToListLitItemsPage();
+		EditLiteraturesPage editLitPage = listLiteItemsPage.editLiterature("2022_W37_9");
+		threadwait(3000);
+		editLitPage.createAction("Internal review", "Open", fromDate, fromMonth, fromYear, toDate, toMonth, toYear);
+		threadwait(3000);
+	}
+
+	// @Test
 	public void editLiteratureItemByTitleAddAction() {
 		threadwait(5000);
 		String fromDate = "28";
@@ -27,42 +44,35 @@ public class RetransTest extends TestBase {
 		threadwait(3000);
 	}
 
-	@Test
-	public void editLiteratureItemAddAction() {
-		threadwait(5000);
-		String fromDate = "28";
-		String fromMonth = "Oct";
-		String fromYear = "2022";
-
-		String toDate = "13";
-		String toMonth = "Nov";
-		String toYear = "2022";
-
-		listLiteItemsPage.navigateToListLitItemsPage();
-		EditLiteraturesPage editLitPage = listLiteItemsPage.editLiterature("2022_W37_9");
-		threadwait(3000);
-		editLitPage.createAction("Internal review", "Open", fromDate, fromMonth, fromYear, toDate, toMonth, toYear);
-		threadwait(3000);
-	}
-
-	@Test
+	// @Test
 	public void editLiteratureItemAddNotes() {
 
 		listLiteItemsPage.navigateToListLitItemsPage();
-		EditLiteraturesPage editLitPage = listLiteItemsPage.editLiterature("2022_W37_9");
+		EditLiteraturesPage editLitPage = listLiteItemsPage.editLiterature("2022_W46_567");
 		threadwait(3000);
-		editLitPage.createNotes("Nodes Title Sep 30", "Notes Description Sep 30");
+		editLitPage.createNotes("Nodes Title Nov 22 2022", "Notes Description Nov 22 2022 Description", "");
 		threadwait(3000);
 	}
 
 	@Test
+	public void editLiteratureItemAddNotesWithAttachment() {
+
+		listLiteItemsPage.navigateToListLitItemsPage();
+		String attachmentFilePath = "C:/Users/I329775/Pictures/camprofiles.PNG";
+		EditLiteraturesPage editLitPage = listLiteItemsPage.editLiterature("2022_W46_567");
+		threadwait(3000);
+		editLitPage.createNotes("Nodes Title Nov 22 2022", "Nodes Title Nov 22 2022 Description", attachmentFilePath);
+		threadwait(3000);
+	}
+
+	// @Test
 	public void editLiteratureItem() {
 		listLiteItemsPage.navigateToListLitItemsPage();
 		listLiteItemsPage.editLiterature("2022_W37_9");
 		threadwait(3000);
 	}
 
-	@Test
+	// @Test
 	public void selectMultipleLiteratures() {
 		listLiteItemsPage.navigateToListLitItemsPage();
 		listLiteItemsPage.selectLiteratureByCheckBox("2022_W37_9");
@@ -72,7 +82,7 @@ public class RetransTest extends TestBase {
 		threadwait(3000);
 	}
 
-	@Test
+	// @Test
 	public void viewLiteratureItemAndVerifyAuthor() {
 		listLiteItemsPage.navigateToListLitItemsPage();
 		listLiteItemsPage.clickLiteratureByName("2022_W37_9");
@@ -81,7 +91,7 @@ public class RetransTest extends TestBase {
 		listLiteItemsPage.closeLiteratureDialog();
 	}
 
-	@Test
+	// @Test
 	public void claimLiterature() {
 		listLiteItemsPage.navigateToListLitItemsPage();
 		listLiteItemsPage.selectLiteratureByCheckBox("2022_W37_9");
@@ -89,7 +99,7 @@ public class RetransTest extends TestBase {
 		threadwait(5000);
 	}
 
-	@Test
+	// @Test
 	public void filterLiteratures() {
 		listLiteItemsPage.navigateToListLitItemsPage();
 		listLiteItemsPage.filterByActivity("Triage");
