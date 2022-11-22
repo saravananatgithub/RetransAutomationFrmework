@@ -22,11 +22,10 @@ public class EditLiteraturesPage extends BasePage {
 		super(driver);
 	}
 
-	public void createNotes(String title, String description) {
-		// createNotesButton.click();
+	public void createNotes(String title, String description, String attachmentFilePath) {
 		driver.findElement(By.xpath("//button[@id='litPanel:userNotesListForm:createNote']")).click();
 		CreateNotesPage notesPage = new CreateNotesPage(driver);
-		notesPage.addNotes(title, description);
+		notesPage.addNotes(title, description, attachmentFilePath);
 		threadwait(3000);
 	}
 
