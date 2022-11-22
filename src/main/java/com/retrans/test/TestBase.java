@@ -27,19 +27,19 @@ public class TestBase {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public static WebDriver driver;
 	public static LoginPage loginPage = null;
-	
+
 	public static String username = properties.getProperty("username");
 	public static String password = properties.getProperty("password");
-	
+
 	public static ListLiteraturesPage listLiteItemsPage = null;
 	public static String hostIP = properties.getProperty("hostip");
 	public static String context = properties.getProperty("context");
 	public static String baseUrl = "http://" + hostIP + "/" + context + "/login.xhtml";
 	public static String chromeDriverPath = properties.getProperty("driver-path");
-	
+
 	static {
 		java.net.URL url = ClassLoader.getSystemResource("env.properties");
 		try {
@@ -78,7 +78,7 @@ public class TestBase {
 	public void afterTest() {
 		System.out.println("After Test");
 
-		WebElement testUserLink = driver.findElement(By.xpath("//span[contains(text(),'Test_User')]"));
+		WebElement testUserLink = driver.findElement(By.xpath("//span[contains(text(),'" + username + "')]"));
 		WebElement logoutElement = driver.findElement(By.xpath("//span[normalize-space()='Logout']"));
 
 		testUserLink.click();
