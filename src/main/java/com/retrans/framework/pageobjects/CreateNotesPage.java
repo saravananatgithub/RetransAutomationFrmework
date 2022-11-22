@@ -16,11 +16,22 @@ public class CreateNotesPage extends BasePage {
 	@FindBy(xpath = "//button[@id='litPanel:createUserNotesForm:saveNote']//span[@class='ui-button-text ui-c'][normalize-space()='Save']")
 	private WebElement saveNotesButton;
 
+	private String addSupportingDocButtonXpath = "//input[@id='litPanel:createUserNotesForm:supDocUserNotes_input']";
+
+	private String uploadButtonXpath = "//button[@class='ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-left ui-fileupload-upload']//span[@class='ui-button-text ui-c'][normalize-space()='Upload']";
+
 	public CreateNotesPage(WebDriver driver) {
 		super(driver);
 	}
 
-	public void addNotes(String title, String description) {
+	public void addNotes(String title, String description, String attachmentFilePath) {
+
+		if (attachmentFilePath != null && !"".equals(attachmentFilePath)) {
+			driver.findElement(By.xpath(addSupportingDocButtonXpath)).sendKeys(attachmentFilePath);
+			threadwait(3000);
+			driver.findElement(By.xpath(uploadButtonXpath)).click();
+			threadwait(5000);
+		}
 
 		driver.findElement(By.xpath("//input[@id='litPanel:createUserNotesForm:title']")).sendKeys(title);
 
