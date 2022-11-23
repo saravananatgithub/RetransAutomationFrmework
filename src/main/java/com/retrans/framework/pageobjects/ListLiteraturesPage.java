@@ -15,7 +15,11 @@ public class ListLiteraturesPage extends BasePage {
 	@FindBy(xpath = "//span[normalize-space()='Logout']")
 	private WebElement logoutElement;
 
-	@FindBy(xpath = "//label[@id='literaturListForm:literatureItemsGrid:classificationid_label']/following::span[1]")
+	// @FindBy(xpath =
+	// "//label[@id='literaturListForm:literatureItemsGrid:classificationid_label']/following::span[1]")
+
+	// label[@id='literaturListForm:literatureItemsGrid:classificationid_label']/preceding::div[1]/following::div[1]/span
+	@FindBy(xpath = "//label[@id='literaturListForm:literatureItemsGrid:classificationid_label']/preceding::div[1]/following::div[1]/span")
 	private WebElement filterByClassification;
 
 	@FindBy(xpath = "//span[normalize-space()='Claim']")
@@ -33,8 +37,7 @@ public class ListLiteraturesPage extends BasePage {
 	@FindBy(xpath = "//label[@id='literaturListForm:literatureItemsGrid:statusid_label']/following::span[1]")
 	private WebElement filterByActivity;
 
-	@FindBy(xpath = "//span[normalize-space()='Clear']")
-	private WebElement clearFilterElement;
+	private String clearFilterElementXPATH = "//span[@class='ui-button-icon-left ui-icon ui-c fa fa-eraser']";
 
 	public ListLiteraturesPage(WebDriver driver) {
 		super(driver);
@@ -43,7 +46,8 @@ public class ListLiteraturesPage extends BasePage {
 	}
 
 	public void clearFilter() {
-		clearFilterElement.click();
+		threadwait(3000);
+		driver.findElement(By.xpath(clearFilterElementXPATH)).click();
 	}
 
 	public void closeLiteratureDialog() {
@@ -97,7 +101,7 @@ public class ListLiteraturesPage extends BasePage {
 		xpath = "//textarea[@placeholder='Title ']";
 		driver.findElement(By.xpath(xpath)).clear();
 		driver.findElement(By.xpath(xpath)).sendKeys("%" + litTitle + "%");
-		
+
 		xpath = "//button[@id='filterPanelForm:applyFilter']";
 		driver.findElement(By.xpath(xpath)).click();
 		threadwait(4000);
