@@ -19,7 +19,7 @@ public class ListLiteraturesPage extends BasePage {
 	// "//label[@id='literaturListForm:literatureItemsGrid:classificationid_label']/following::span[1]")
 
 	// label[@id='literaturListForm:literatureItemsGrid:classificationid_label']/preceding::div[1]/following::div[1]/span
-	@FindBy(xpath = "//label[@id='literaturListForm:literatureItemsGrid:classificationid_label']/preceding::div[1]/following::div[1]/span")
+	@FindBy(xpath = "//label[@id='literaturListForm:literatureItemsGrid:classificationid_label']/following::span[1]")
 	private WebElement filterByClassification;
 
 	@FindBy(xpath = "//span[normalize-space()='Claim']")
