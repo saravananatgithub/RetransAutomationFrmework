@@ -1,4 +1,4 @@
-package com.retrans.framework.pageobjects;
+package com.zigtal.framework.pageobjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import com.retrans.test.TestBase;
+import com.zigtal.test.TestBase;
 
 public class ListLiteraturesPage extends BasePage {
 	@FindBy(xpath = "//span[contains(text(),'Test_User')]")

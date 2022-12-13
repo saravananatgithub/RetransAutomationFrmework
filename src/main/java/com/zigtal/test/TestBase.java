@@ -1,4 +1,4 @@
-package com.retrans.test;
+package com.zigtal.test;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -12,8 +12,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
-import com.retrans.framework.pageobjects.ListLiteraturesPage;
-import com.retrans.framework.pageobjects.LoginPage;
+import com.zigtal.framework.pageobjects.ListLiteraturesPage;
+import com.zigtal.framework.pageobjects.LoginPage;
 
 public class TestBase {
 	public static Properties properties = new Properties();

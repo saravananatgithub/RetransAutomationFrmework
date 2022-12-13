@@ -1,10 +1,10 @@
-package com.retrans.test;
+package com.zigtal.test;
 
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.retrans.framework.pageobjects.EditLiteraturesPage;
+import com.zigtal.framework.pageobjects.EditLiteraturesPage;
 
 public class RetransTest extends TestBase {
 

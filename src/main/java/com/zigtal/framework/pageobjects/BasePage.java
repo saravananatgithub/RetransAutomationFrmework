@@ -1,4 +1,4 @@
-package com.retrans.framework.pageobjects;
+package com.zigtal.framework.pageobjects;
 
 import java.time.Duration;
 

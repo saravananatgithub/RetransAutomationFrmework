@@ -1,4 +1,4 @@
-package com.retrans.framework.pageobjects;
+package com.zigtal.framework.pageobjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
